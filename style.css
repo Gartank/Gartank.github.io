@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Bentham&display=swap");
+*, *::after, *::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body, html {
+  height: 100%;
+  font-size: 18px;
+  font-family: "Roboto", serif;
+}
+
+.contact__social, .contact, footer, .presentation, section, main, header {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+header {
+  width: 100%;
+  max-height: 20%;
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
+.header__nav {
+  max-width: fit-content;
+}
+
+.button__contact {
+  width: calc(6vw + 1em);
+  padding: 10px;
+  font-size: 16px;
+}
+
+main {
+  width: 100%;
+  height: fit-content;
+  flex-direction: column;
+}
+
+.section__title {
+  position: relative;
+  top: 3%;
+  left: 3%;
+  z-index: 20;
+}
+
+.presentation, .bio, .technologies, .projects {
+  height: 100vh;
+  padding: 5% 10% 0;
+  justify-content: center;
+  background-color: black;
+}
+.presentation::after, .bio::after, .technologies::after, .projects::after {
+  content: " ";
+  display: block;
+  z-index: 10;
+  width: 100%;
+  height: 20vh;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), 40%, rgb(0, 0, 0), 95%, rgba(0, 0, 0, 0));
+  position: absolute;
+  bottom: -10%;
+  left: 0;
+}
+
+.presentation__name-container {
+  position: absolute;
+  top: 15%;
+  left: 70%;
+  z-index: 20;
+}
+.presentation__name-container .presentation__name {
+  font-size: 6em;
+  text-align: start;
+  width: min-content;
+}
+.presentation__name-container .presentation__ocupation {
+  width: fit-content;
+  margin-inline-start: auto;
+  text-align: end;
+  line-height: 0;
+}
+
+.presentation__para {
+  font-size: 1em;
+  width: 19%;
+  height: auto;
+  position: absolute;
+  top: 77%;
+  left: 20%;
+  z-index: 20;
+}
+
+.presentation__pic {
+  display: block;
+  width: 63%;
+  aspect-ratio: 1/1.2486702128;
+  height: fit-content;
+  align-self: flex-end;
+  overflow-y: hidden;
+}
+
+.pic__img {
+  width: 100%;
+}
+
+.projects__container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template: 100%/repeat(3, 1fr);
+}
+.projects__container .project-column {
+  display: grid;
+  grid-template: 1.2fr 0.8fr/1fr;
+}
+.projects__container :nth-child(odd) {
+  display: grid;
+  grid-template: 0.8fr 1.2fr/1fr;
+}
+
+footer {
+  font-size: 1.5em;
+}
+
+.contact {
+  width: 100%;
+  height: 10%;
+  padding: 2%;
+  width: 100%;
+  position: fixed;
+  bottom: 0%;
+  left: 0;
+  z-index: 20;
+  justify-content: space-between;
+}
+
+.contact__social {
+  justify-content: space-around;
+  width: 12%;
+}
+.contact__social .contact__social-icon {
+  width: 30px;
+  height: fit-content;
+}
+
+.contact__location {
+  font-weight: 500;
+}
+
+html {
+  color: rgb(247, 44, 44);
+}
+
+body {
+  background-color: black;
+}
+
+header {
+  background-image: linear-gradient(180deg, rgba(40, 4, 4, 0.2), 10%, rgba(0, 0, 0, 0));
+}
+
+.contact {
+  background-image: linear-gradient(0deg, rgba(40, 4, 4, 0.2), 10%, rgba(0, 0, 0, 0));
+}
+
+.button__contact {
+  font-weight: 400;
+  background-color: rgb(40, 4, 4);
+  color: rgb(247, 44, 44);
+  border: solid rgb(247, 44, 44) 1px;
+  border-radius: 20px;
+}
+
+.presentation__name {
+  font-weight: 500;
+}
+
+.presentation__ocupation {
+  color: rgb(117, 7, 7);
+}
+
+.presentation__para {
+  font-weight: 400;
+}
+
+.project {
+  background-color: #fff;
+  border: 2px solid rgb(40, 4, 4);
+}
+
+.contact__social-icon {
+  color: rgb(247, 44, 44);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon__2 {
+  border-radius: 7px;
+}
+
+.button__contact {
+  animation-name: breath;
+  animation-duration: 5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  transition-delay: 500ms;
+}
+@keyframes breath {
+  60% {
+    box-shadow: 0 0 5px 10px rgb(247, 44, 44);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+
+.contact__social-icon {
+  animation-name: breath;
+  animation-duration: 5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  transition-delay: 500ms;
+}
+@keyframes breath {
+  60% {
+    filter: drop-shadow(0px 0px 10px rgb(247, 44, 44));
+  }
+  100% {
+    filter: none;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

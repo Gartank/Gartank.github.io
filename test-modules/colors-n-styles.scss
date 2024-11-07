@@ -1,0 +1,97 @@
+@use "variables.scss";
+@use "sass:color";
+
+@mixin breath-animation($color, $is-button: true){
+    animation-name: breath;
+    animation-duration: 5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    transition-delay: 500ms;
+    
+    @keyframes breath {
+        60%{
+            @if ($is-button == true){
+                box-shadow: 0 0 5px 10px $color;
+            }
+            @else{
+                filter: drop-shadow(0px 0px 10px $color);
+            }
+        }
+        100%{
+            @if ($is-button == true){
+                box-shadow: none;
+            }
+            @else{
+                filter: none;
+            }
+        }
+    }
+}
+
+@mixin shadow-bg($side: top){
+    $angle: 180deg;
+
+    @if($side == bottom){
+        $angle: 0deg;
+    }
+    background-image: linear-gradient($angle, color.change(variables.$bg-color, $alpha: 0.2),10%, rgba(0, 0, 0, 0));
+
+}
+
+html{
+    
+    color: variables.$font-color;
+}
+
+body{
+    background-color: black;
+}
+
+header{
+    @include shadow-bg(top);
+}
+
+.contact{
+    @include shadow-bg(bottom);
+}
+.button__contact{
+    font-weight: 400;
+    background-color: variables.$bg-color;
+    color: variables.$font-color;
+    border: solid variables.$font-color 1px;
+    border-radius: 20px;
+}
+
+.presentation__name{
+    font-weight: 500;
+}
+.presentation__ocupation{
+    color: variables.$main-color;
+}
+
+.presentation__para{
+    font-weight: 400;
+}
+
+.project{
+    background-color: #fff;
+    border: 2px solid variables.$bg-color;
+}
+
+.contact__social-icon{
+    color: variables.$font-color;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.social-icon__2{
+    border-radius: 7px;
+}
+
+.button__contact{
+    @include breath-animation(variables.$font-color, true);
+}
+.contact__social-icon{
+    @include breath-animation(variables.$font-color, false);
+}
