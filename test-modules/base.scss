@@ -150,10 +150,9 @@ section{
 .presentation__pic{
     $aspect-ratio: math.div(939, 752);
     display: block;
-    width: 63%;
+    width: 55%;
 
     aspect-ratio: 1 / #{$aspect-ratio};
-    height: fit-content;
 
     align-self: flex-end;
 
