@@ -1,4 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Bentham&display=swap");
+.contact__social, .contact, footer, .presentation, section, main, header, .projects__container :nth-child(odd) :nth-child(odd), .projects__container :nth-child(even) :nth-child(odd), .projects__container :nth-child(odd) :nth-child(even), .projects__container :nth-child(even) :nth-child(even) {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.projects__container :nth-child(odd) :nth-child(even), .projects__container :nth-child(even) :nth-child(even) {
+  flex-direction: column-reverse;
+}
+.projects__container :nth-child(odd) :nth-child(odd), .projects__container :nth-child(even) :nth-child(odd) {
+  flex-direction: column;
+}
+
 *, *::after, *::before {
   box-sizing: border-box;
   padding: 0;
@@ -9,11 +21,6 @@ body, html {
   height: 100%;
   font-size: 18px;
   font-family: "Roboto", serif;
-}
-
-.contact__social, .contact, footer, .presentation, section, main, header {
-  display: flex;
-  flex-wrap: nowrap;
 }
 
 header {
@@ -51,13 +58,31 @@ main {
   z-index: 20;
 }
 
-.presentation, .bio, .technologies, .projects {
+.presentation, .bio, .technologies {
   height: 100vh;
   padding: 5% 10% 0;
   justify-content: center;
   background-color: black;
 }
-.presentation::after, .bio::after, .technologies::after, .projects::after {
+.presentation::after, .bio::after, .technologies::after {
+  content: " ";
+  display: block;
+  z-index: 10;
+  width: 100%;
+  height: 20vh;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), 40%, rgb(0, 0, 0), 95%, rgba(0, 0, 0, 0));
+  position: absolute;
+  bottom: -10%;
+  left: 0;
+}
+
+.projects {
+  height: 100vh;
+  padding: 5% 5%;
+  justify-content: center;
+  background-color: black;
+}
+.projects::after {
   content: " ";
   display: block;
   z-index: 10;
@@ -116,13 +141,13 @@ main {
   display: grid;
   grid-template: 100%/repeat(3, 1fr);
 }
-.projects__container .project-column {
+.projects__container :nth-child(even) {
   display: grid;
-  grid-template: 1.2fr 0.8fr/1fr;
+  grid-template: 1.1fr 0.9fr/1fr;
 }
 .projects__container :nth-child(odd) {
   display: grid;
-  grid-template: 0.8fr 1.2fr/1fr;
+  grid-template: 0.9fr 1.1fr/1fr;
 }
 
 footer {

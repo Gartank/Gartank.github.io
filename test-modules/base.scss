@@ -1,9 +1,14 @@
 @use "sass:math";
 @use "variables.scss";
 
-@mixin section-creator($height: 100vh, $justify: center, $bgc: black, $final-section: false){
+%flexy-element {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+@mixin section-creator($height: 100vh, $padding-block: 10% 0 , $justify: center, $bgc: black, $final-section: false){
     height: $height;
-    padding: 5% 10% 0;
+    padding: 5% $padding-block;
     justify-content: $justify;
     background-color: $bgc;
 
@@ -22,22 +27,42 @@
     }
 }
 
+%staggered-cells{
+    :nth-child(even){
+        @extend %flexy-element;
+        flex-direction: column-reverse;
+    }
+    
+    :nth-child(odd){
+        @extend %flexy-element;
+        flex-direction: column;
+    }
+}
+
 @mixin projects-staggered-grid($width: 100%, $height: 100%, $columns: 3){
     width: $width;
     height: $height;
-
+    
     display: grid;
     grid-template: 100% / repeat($columns, 1fr);
-
-    .project-column{
+    
+    :nth-child(even){
         display: grid;
-        grid-template: 1.2fr 0.8fr / 1fr;
-        
+        grid-template: 1.1fr 0.9fr / 1fr;
+        @extend %staggered-cells;
     }
     :nth-child(odd){
         display: grid;
-        grid-template: 0.8fr 1.2fr / 1fr;
+        grid-template: 0.9fr 1.1fr / 1fr;
+        @extend %staggered-cells;
     }
+}
+
+@mixin float-elem($top: 0, $left: 0, $position: absolute){
+    position: $position;
+    top: $top;
+    left: $left;
+    z-index: 20;
 }
 
 *, *::after, *::before{
@@ -50,19 +75,6 @@ body, html {
     height: 100%;
     font-size: 18px;
     font-family: "Roboto", serif;
-}
-
-%flexy-element {
-    display: flex;
-    flex-wrap: nowrap;
-}
-    
-
-@mixin float-elem($top: 0, $left: 0, $position: absolute){
-    position: $position;
-    top: $top;
-    left: $left;
-    z-index: 20;
 }
 
 header{
@@ -102,8 +114,11 @@ section{
     @include float-elem(3%, 3%, relative);
 }
 
-.presentation, .bio, .technologies, .projects{
+.bio, .technologies{
     @include section-creator();
+}
+.projects{
+    @include section-creator(100vh, 5%);
 }
 
 .presentation{
