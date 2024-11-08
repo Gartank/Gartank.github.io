@@ -1,0 +1,25 @@
+@use "sass:math";
+@use "variables.scss";
+@use "mixins.scss";
+
+header{
+    @extend %flexy-element;
+    width: 100%;
+    max-height: 20%;
+    padding: 2%;
+    
+    display: flex;
+    justify-content: space-between;
+    
+    @include mixins.float-elem(0,0,fixed);
+}
+
+.header__nav{
+    max-width: fit-content;
+}
+
+.button__contact{
+    width: calc(6vw + 1em);
+    padding: 10px;
+    font-size: 16px;
+}

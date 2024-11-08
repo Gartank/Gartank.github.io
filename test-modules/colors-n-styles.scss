@@ -1,42 +1,5 @@
 @use "variables.scss";
-@use "sass:color";
-
-@mixin breath-animation($color, $is-button: true){
-    animation-name: breath;
-    animation-duration: 5s;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-    transition-delay: 500ms;
-    
-    @keyframes breath {
-        60%{
-            @if ($is-button == true){
-                box-shadow: 0 0 5px 10px $color;
-            }
-            @else{
-                filter: drop-shadow(0px 0px 10px $color);
-            }
-        }
-        100%{
-            @if ($is-button == true){
-                box-shadow: none;
-            }
-            @else{
-                filter: none;
-            }
-        }
-    }
-}
-
-@mixin shadow-bg($side: top){
-    $angle: 180deg;
-
-    @if($side == bottom){
-        $angle: 0deg;
-    }
-    background-image: linear-gradient($angle, color.change(variables.$bg-color, $alpha: 0.2),10%, rgba(0, 0, 0, 0));
-
-}
+@use "mixins.scss";
 
 html{
     
@@ -48,11 +11,11 @@ body{
 }
 
 header{
-    @include shadow-bg(top);
+    @include mixins.shadow-bg(top);
 }
 
 .contact{
-    @include shadow-bg(bottom);
+    @include mixins.shadow-bg(bottom);
 }
 .button__contact{
     font-weight: 400;
@@ -90,8 +53,8 @@ header{
 }
 
 .button__contact{
-    @include breath-animation(variables.$font-color, true);
+    @include mixins.breath-animation(variables.$font-color, true);
 }
 .contact__social-icon{
-    @include breath-animation(variables.$font-color, false);
+    @include mixins.breath-animation(variables.$font-color, false);
 }

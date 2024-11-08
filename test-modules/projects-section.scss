@@ -1,0 +1,8 @@
+@use "sass:math";
+@use "variables.scss";
+@use "mixins.scss";
+
+.projects__container{
+    @include mixins.projects-staggered-grid();
+}
+

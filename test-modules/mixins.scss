@@ -1,0 +1,106 @@
+@use "sass:math";
+@use "sass:color";
+@use "variables.scss";
+
+%flexy-element {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+@mixin section-creator($height: 100vh, $padding-block: 10% 0 , $justify: center, $bgc: black, $final-section: false){
+    height: $height;
+    padding: 5% $padding-block;
+    justify-content: $justify;
+    background-color: $bgc;
+
+    @if($final-section == false){
+        &::after{
+            content: " ";
+            display: block;
+            z-index: 10;
+            width: 100%;
+            height: 20vh;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0), 40%, rgb(0, 0, 0), 95%, rgba(0, 0, 0, 0));
+            position: absolute;
+            bottom: -10%;
+            left: 0;
+        }
+    }
+}
+
+%staggered-cells{
+    :nth-child(even){
+        @extend %flexy-element;
+        flex-direction: column-reverse;
+    }
+    
+    :nth-child(odd){
+        @extend %flexy-element;
+        flex-direction: column;
+    }
+}
+
+@mixin projects-staggered-grid($width: 100%, $height: 100%, $columns: 3){
+    width: $width;
+    height: $height;
+    
+    display: grid;
+    grid-template: 100% / repeat($columns, 1fr);
+    
+    :nth-child(even){
+        display: grid;
+        grid-template: 1.1fr 0.9fr / 1fr;
+        @extend %staggered-cells;
+    }
+    :nth-child(odd){
+        display: grid;
+        grid-template: 0.9fr 1.1fr / 1fr;
+        @extend %staggered-cells;
+    }
+}
+
+@mixin float-elem($top: 0, $left: 0, $position: absolute){
+    position: $position;
+    top: $top;
+    left: $left;
+    z-index: 20;
+}
+
+// Design mixins
+
+@mixin breath-animation($color, $is-button: true){
+    animation-name: breath;
+    animation-duration: 5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    transition-delay: 500ms;
+    
+    @keyframes breath {
+        60%{
+            @if ($is-button == true){
+                box-shadow: 0 0 5px 10px $color;
+            }
+            @else{
+                filter: drop-shadow(0px 0px 10px $color);
+            }
+        }
+        100%{
+            @if ($is-button == true){
+                box-shadow: none;
+            }
+            @else{
+                filter: none;
+            }
+        }
+    }
+}
+
+@mixin shadow-bg($side: top){
+    $angle: 180deg;
+
+    @if($side == bottom){
+        $angle: 0deg;
+    }
+    background-image: linear-gradient($angle, color.change(variables.$bg-color, $alpha: 0.2),10%, rgba(0, 0, 0, 0));
+
+}
