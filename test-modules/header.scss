@@ -18,6 +18,10 @@ header{
     max-width: fit-content;
 }
 
+.nav__elem{
+    display: block;
+}
+
 .button__contact{
     width: calc(6vw + 1em);
     padding: 10px;

@@ -14,6 +14,11 @@ header{
     @include mixins.shadow-bg(top);
 }
 
+a, a:visited{
+    text-decoration: none;
+    color: variables.$font-color;
+}
+
 .contact{
     @include mixins.shadow-bg(bottom);
 }

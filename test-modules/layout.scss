@@ -30,7 +30,3 @@ section{
 .section__title{
     @include mixins.float-elem(3%, 3%, relative);
 }
-
-.projects{
-    @include mixins.section-creator(100vh, 5%);
-}
