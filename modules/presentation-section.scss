@@ -1,0 +1,46 @@
+@use "sass:math";
+@use "variables.scss";
+@use "mixins.scss";
+
+.presentation{
+    @include mixins.section-creator();
+}
+
+.presentation__name-container{
+    .presentation__name{
+        font-size: 6em;
+        text-align: start;
+        width: min-content;
+    }
+    .presentation__ocupation{
+        width: fit-content;
+        margin-inline-start: auto;
+        text-align: end;
+        line-height: 0;
+    }
+    @include mixins.float-elem(15%, 70%);
+}
+
+.presentation__para{
+    font-size: 1em;
+    width: 19%;
+    height: auto;
+    @include mixins.float-elem(77%, 20%);
+}
+
+.presentation__pic{
+    $aspect-ratio: math.div(939, 752);
+    display: block;
+    width: 55%;
+    height: fit-content;
+
+    aspect-ratio: 1 / #{$aspect-ratio};
+
+    align-self: flex-end;
+
+    overflow-y: hidden;
+}
+
+.pic__img{
+    width: 100%;
+}

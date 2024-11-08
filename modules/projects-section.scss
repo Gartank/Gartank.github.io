@@ -1,0 +1,12 @@
+@use "sass:math";
+@use "variables.scss";
+@use "mixins.scss";
+
+.projects{
+    @include mixins.section-creator(100vh, 5%);
+    align-items: center;
+}
+
+.projects__container{
+    @include mixins.projects-staggered-grid(80%, 80%);
+}

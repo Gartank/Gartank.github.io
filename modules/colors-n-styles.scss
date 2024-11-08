@@ -1,0 +1,65 @@
+@use "variables.scss";
+@use "mixins.scss";
+
+html{
+    
+    color: variables.$font-color;
+}
+
+body{
+    background-color: black;
+}
+
+header{
+    @include mixins.shadow-bg(top);
+}
+
+a, a:visited{
+    text-decoration: none;
+    color: variables.$font-color;
+}
+
+.contact{
+    @include mixins.shadow-bg(bottom);
+}
+.button__contact{
+    font-weight: 400;
+    background-color: variables.$bg-color;
+    color: variables.$font-color;
+    border: solid variables.$font-color 1px;
+    border-radius: 20px;
+}
+
+.presentation__name{
+    font-weight: 500;
+}
+.presentation__ocupation{
+    color: variables.$main-color;
+}
+
+.presentation__para{
+    font-weight: 400;
+}
+
+.project{
+    background-color: #fff;
+    border: 2px solid variables.$bg-color;
+}
+
+.contact__social-icon{
+    color: variables.$font-color;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.social-icon__2{
+    border-radius: 7px;
+}
+
+.button__contact{
+    @include mixins.breath-animation(variables.$font-color, true);
+}
+.contact__social-icon{
+    @include mixins.breath-animation(variables.$font-color, false);
+}
