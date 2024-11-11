@@ -101,8 +101,6 @@
         $angle: 0deg;
     }
     background-image: linear-gradient($angle, color.change(variables.$bg-color, $alpha: 0.2),10%, rgba(0, 0, 0, 0));
-
-
 }
 
 @mixin shadow-text($color, $angles: 0 0){
