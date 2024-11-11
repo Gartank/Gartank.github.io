@@ -28,10 +28,18 @@ a, a:visited{
     color: variables.$font-color;
     border: solid variables.$font-color 1px;
     border-radius: 20px;
+    transition-duration: 300ms;
+
+}
+.button__contact:hover{
+    animation-delay: 0ms;
+    color: variables.$bg-color;
+    background-color: variables.$font-color;
 }
 
 .presentation__name{
     font-weight: 500;
+    @include mixins.shadow-text(variables.$font-color);
 }
 .presentation__ocupation{
     color: variables.$main-color;

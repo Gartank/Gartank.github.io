@@ -73,7 +73,6 @@
     animation-duration: 5s;
     animation-direction: alternate;
     animation-iteration-count: infinite;
-    transition-delay: 500ms;
     
     @keyframes breath {
         60%{
@@ -103,4 +102,9 @@
     }
     background-image: linear-gradient($angle, color.change(variables.$bg-color, $alpha: 0.2),10%, rgba(0, 0, 0, 0));
 
+
+}
+
+@mixin shadow-text($color, $angles: 0 0){
+    text-shadow: $angles 20px $color;
 }

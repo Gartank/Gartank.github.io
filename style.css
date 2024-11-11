@@ -23,6 +23,10 @@ body, html {
   font-family: "Roboto", serif;
 }
 
+button {
+  cursor: pointer;
+}
+
 main {
   width: 100%;
   height: fit-content;
@@ -212,10 +216,18 @@ a, a:visited {
   color: rgb(247, 44, 44);
   border: solid rgb(247, 44, 44) 1px;
   border-radius: 20px;
+  transition-duration: 300ms;
+}
+
+.button__contact:hover {
+  animation-delay: 0ms;
+  color: rgb(40, 4, 4);
+  background-color: rgb(247, 44, 44);
 }
 
 .presentation__name {
   font-weight: 500;
+  text-shadow: 0 0 20px rgb(247, 44, 44);
 }
 
 .presentation__ocupation {
@@ -248,7 +260,6 @@ a, a:visited {
   animation-duration: 5s;
   animation-direction: alternate;
   animation-iteration-count: infinite;
-  transition-delay: 500ms;
 }
 @keyframes breath {
   60% {
@@ -264,7 +275,6 @@ a, a:visited {
   animation-duration: 5s;
   animation-direction: alternate;
   animation-iteration-count: infinite;
-  transition-delay: 500ms;
 }
 @keyframes breath {
   60% {
